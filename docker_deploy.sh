@@ -1,5 +1,5 @@
 #!/bin/bash
 set -x
-docker stop signup-prod 
-docker rm signup-prod 
-docker run -d --name signup-prod -e NODE_ENV=production -e IP=0.0.0.0 -p 80:8080 lunchletter/signup
+docker stop scheduler-prod 
+docker rm scheduler-prod 
+docker run -d --name scheduler-prod lunchletter/schedulers

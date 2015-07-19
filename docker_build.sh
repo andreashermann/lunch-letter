@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t lunchletter/signup .
+docker build -t lunchletter/scheduler .
