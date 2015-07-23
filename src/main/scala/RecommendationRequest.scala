@@ -7,7 +7,7 @@ class RecommendationRequest(engineClient: RecommendationEngine) {
 
   def getRecommendationIds(userId: String): List[String] = {
     val arguments = Map("userEntityId" -> userId.asInstanceOf[AnyRef], "number" -> 3.asInstanceOf[AnyRef])
-    val response = engineClient.sendQuery(arguments)
+    val response = engineClient.getRecommendations(arguments)
 
     response.getAsJsonArray("itemScores")
       .map(_.getAsJsonObject().get("item").getAsString)
@@ -20,15 +20,15 @@ class RecommendationRequest(engineClient: RecommendationEngine) {
       .toList
   }
 
-  def getRestaurantsById(): Map[String, Map[String, JsonElement]] = {
+  def getRestaurantsById(): Map[String, Map[String, String]] = {
     val restaurants = engineClient.getRestaurants().map(_.getAsJsonObject).toList
 
-    val restaurantsById : Map[String, Map[String, JsonElement]] = Map()
+    val restaurantsById : Map[String, Map[String, String]] = Map()
 
     for (restaurant <- restaurants) {
-      val properties : Map[String, JsonElement] = Map()
+      val properties : Map[String, String] = Map()
       for(entry <- restaurant.get("properties").getAsJsonObject().entrySet()) {
-        properties.put(entry.getKey, entry.getValue())
+        properties.put(entry.getKey, entry.getValue().getAsString)
       }
       restaurantsById.put(restaurant.get("entityId").getAsString, properties)
     }

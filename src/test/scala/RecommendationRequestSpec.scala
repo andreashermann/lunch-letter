@@ -8,7 +8,7 @@ class RecommendationRequestSpec extends FlatSpec with MockFactory with Matchers 
     val jsonString = "{\"itemScores\":[{\"item\":\"52\",\"score\":9.582509402541834},{\"item\":\"95\",\"score\":8.017236650368387}]}"
     val engineResponse = new JsonParser().parse(jsonString).asInstanceOf[JsonObject]
     val engine = mock[RecommendationEngine]
-    (engine.sendQuery _).expects(*).once().returning(engineResponse)
+    (engine.getRecommendations _).expects(*).once().returning(engineResponse)
 
     val recommendations = new RecommendationRequest(engine).getRecommendationIds("userId")
 
@@ -35,6 +35,6 @@ class RecommendationRequestSpec extends FlatSpec with MockFactory with Matchers 
     val restaurants = new RecommendationRequest(engine).getRestaurantsById();
 
     restaurants should contain key "1656"
-    restaurants.get("1656").get("name").getAsString should be ("The restaurant")
+    restaurants.get("1656").get("name") should be ("The restaurant")
   }
 }

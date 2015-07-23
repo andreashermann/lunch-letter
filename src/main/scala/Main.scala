@@ -6,26 +6,24 @@ import scala.collection.mutable.Map
 
 object Main {
 
+  val engine = new RecommendationEngineStub() // new RecommendationEngine
+  val mailer = new StubMailer // new SmtpMailer
+
   def main(args: Array[String]) = {
-    val recommendationRequest = new RecommendationRequest(new RecommendationEngine)
+    val recommendationRequest = new RecommendationRequest(engine)
     val restaurantsById = recommendationRequest.getRestaurantsById();
     val users = recommendationRequest.getUserIds()
-    val mailer = new SmtpMailer
     users.foreach(x => processUser(x, restaurantsById, recommendationRequest, mailer))
   }
 
-  def processUser(emailAddress: String, restaurantsById: Map[String, Map[String, JsonElement]],
+  def processUser(emailAddress: String, restaurantsById: Map[String, Map[String, String]],
                   recommendationRequest: RecommendationRequest, mailer: SmtpMailer) = {
     val recommendationIds = recommendationRequest.getRecommendationIds(emailAddress)
-    val restaurants = recommendationIds.map(id => restaurantsById.get(id))
+    val restaurants : List[Map[String,String]] = recommendationIds.map(id => restaurantsById.get(id)).flatten
+    print(restaurants)
 
     val date = LocalDate.now().toString
     val body = new TemplateRenderer().render(restaurants)
-    //val body = "Guisis"
     mailer.send(emailAddress, "LunchLetter Recommendations " + date, body)
-  }
-
-  def sendMail(user: String, recommendation: String) = {
-    println("Recommendations for " + user + ": " + recommendation)
   }
 }

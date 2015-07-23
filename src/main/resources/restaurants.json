@@ -1,0 +1,23 @@
+[
+  {
+    "entityId":"1",
+    "properties":{
+      "name":"Giusis Pizzeria",
+      "url":"http://www.ristorante-giusis.ch"
+    }
+  },
+  {
+    "entityId":"2",
+    "properties":{
+      "name":"Nooba",
+      "url":"http://nooba.ch"
+    }
+  },
+  {
+    "entityId":"3",
+    "properties":{
+      "name":"Bar au Lac",
+      "url":"http://www.bauraulac.ch"
+    }
+  }
+]
