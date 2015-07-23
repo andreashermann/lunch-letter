@@ -1,2 +1,15 @@
 <%@ val restaurants: List[Map[String,Any]] %>
-<ol>#for (i <- restaurants) <li>${i.get("name")}</li> #end</ol>
+<html>
+<body>
+
+<h1>G'day!</h1>
+
+Todays restaurant recommendations:
+<ol>
+    #for (i <- restaurants)
+        <li>${i.get("name")}</li>
+    #end
+</ol>
+</body>
+
+</html>
