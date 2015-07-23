@@ -14,4 +14,9 @@ class RecommendationEngine {
     val url = "http://engine:80/events.json?event=add_user&accessKey=swBRCzjYKNlmEHdAHBN6WEg9vVcxkt5NzbWc96w2E9xBElfWV1SIXhO6MPZA4CSf"
     new JsonParser().parse(Source.fromURL(url).mkString).asInstanceOf[JsonArray]
   }
+
+  def getRestaurants() : JsonArray = {
+    val url = "http://engine:80/events.json?event=add_restaurant&accessKey=swBRCzjYKNlmEHdAHBN6WEg9vVcxkt5NzbWc96w2E9xBElfWV1SIXhO6MP"
+    new JsonParser().parse(Source.fromURL(url).mkString).asInstanceOf[JsonArray]
+  }
 }

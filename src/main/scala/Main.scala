@@ -11,7 +11,7 @@ object Main {
 
   def processUser(emailAddress: String) = {
     val recommendationIds = new RecommendationRequest(new RecommendationEngine)
-      .getRecommendations(emailAddress)
+      .getRecommendationIds(emailAddress)
     val mailer = new SmtpMailer
     val body = "Giusi's"
     mailer.send(emailAddress, "LunchLetter Recommendations Do 23.7.", body)
