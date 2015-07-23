@@ -20,7 +20,7 @@ object Main {
                   recommendationRequest: RecommendationRequest, mailer: SmtpMailer) = {
     val recommendationIds = recommendationRequest.getRecommendationIds(emailAddress)
     val restaurants : List[Map[String,String]] = recommendationIds.map(id => restaurantsById.get(id)).flatten
-    print(restaurants)
+    //print(restaurants)
 
     val date = LocalDate.now().toString
     val body = new TemplateRenderer().render(restaurants)

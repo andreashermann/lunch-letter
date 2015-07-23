@@ -25,7 +25,7 @@ class SmtpMailer {
     override def getPasswordAuthentication = new PasswordAuthentication(username, password)
   }
 
-  def send(recipient: String, subject: String, body: String): Unit = {
+  def send(recipient: String, subject: String, text: String): Unit = {
     val session = Session.getInstance(properties, authenticator)
     session.setDebug(true)
 
@@ -39,7 +39,8 @@ class SmtpMailer {
         val multipart = new MimeMultipart()
         multipart.addBodyPart(bodyPart)
         message.setContent(multipart)*/
-    message.setText(body)
+    //message.setText(body)
+    message.setContent(text, "text/html; charset=utf-8");
 
     val transport = session.getTransport("smtp")
     transport.connect()
