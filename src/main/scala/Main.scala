@@ -1,19 +1,20 @@
 import main.scala.SmtpMailer
+import scala.collection.JavaConversions._
 
 object Main {
   def main(args: Array[String]) = {
-    val users: List[String] = List("a.v.hermann@gmail.com", "baestu.kohler@gmail.com")
+    val recommendationEngine = new RecommendationEngine
+    val users = recommendationEngine.getUsers()
 
-    users.foreach(processUser)
+    users.foreach(x => processUser(x.getAsJsonObject().get("entityId").getAsString))
   }
 
-  def processUser(user: String) = {
-    val userId = "u1"
+  def processUser(emailAddress: String) = {
     val recommendationIds = new RecommendationRequest(new RecommendationEngine)
-      .getRecommendations(userId)
+      .getRecommendations(emailAddress)
     val mailer = new SmtpMailer
     val body = "Giusi's"
-    mailer.send(user, "LunchLetter Recommendations Do 23.7.", body)
+    mailer.send(emailAddress, "LunchLetter Recommendations Do 23.7.", body)
     //sendMail(user, "Giusi's")
   }
 
