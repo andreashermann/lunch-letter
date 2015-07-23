@@ -3,13 +3,14 @@ import io.prediction.EngineClient
 import scala.collection.mutable._
 import collection.JavaConversions._
 
-class RecommendationRequest {
+class RecommendationRequest(engineClient: EngineClient) {
 
-  val engineClient = new EngineClient("http://engine:80");
-
-  def getRecommendations(userId: String) = {
+  def getRecommendations(userId: String) : List[String] = {
     val arguments : java.util.Map[String,AnyRef] = HashMap[String,AnyRef]("userEntityId" -> userId, "number" -> 3)
-    engineClient.sendQuery(arguments)
-  }
+    val response = engineClient.sendQuery(arguments)
 
+    response.getAsJsonArray("itemScores")
+      .map(_.getAsJsonObject().get("itemEntityId").getAsString)
+      .toList
+  }
 }
