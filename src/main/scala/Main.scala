@@ -1,4 +1,3 @@
-import io.prediction.EngineClient
 import main.scala.SmtpMailer
 
 object Main {

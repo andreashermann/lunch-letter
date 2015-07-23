@@ -2,8 +2,8 @@ package main.scala
 
 import java.util.Properties
 import javax.mail.Message.RecipientType
-import javax.mail.internet.{MimeMultipart, MimeBodyPart, InternetAddress, MimeMessage}
-import javax.mail.{Session, Authenticator, PasswordAuthentication}
+import javax.mail.internet.MimeMessage
+import javax.mail.{Authenticator, PasswordAuthentication, Session}
 
 class SmtpMailer {
 

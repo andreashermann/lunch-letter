@@ -1,5 +1,5 @@
+import scala.collection.JavaConversions._
 import scala.collection.mutable._
-import collection.JavaConversions._
 
 class RecommendationRequest(engineClient: RecommendationEngine) {
 

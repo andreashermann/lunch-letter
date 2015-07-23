@@ -1,6 +1,6 @@
-import com.google.gson.{JsonParser, JsonObject}
-import org.scalatest.{Matchers, FlatSpec}
+import com.google.gson.{JsonObject, JsonParser}
 import org.scalamock.scalatest.MockFactory
+import org.scalatest.{FlatSpec, Matchers}
 
 class RecommendationRequestSpec extends FlatSpec with MockFactory with Matchers {
 
