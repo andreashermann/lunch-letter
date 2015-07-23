@@ -1,5 +1,5 @@
 #!/bin/bash
 set -x
-docker stop scheduler-prod 
-docker rm scheduler-prod 
-docker run -d --name scheduler-prod lunchletter/schedulers
+docker stop mailer-prod 
+docker rm mailer-prod 
+docker run -d --name mailer-prod lunchletter/mailer
