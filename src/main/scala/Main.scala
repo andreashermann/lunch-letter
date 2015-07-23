@@ -10,7 +10,7 @@ object Main {
 
     def processUser(user : String) = {
         val userId = "u1"
-        val recommendationIds = new RecommendationRequest(new EngineClient("http://engine:80"))
+        val recommendationIds = new RecommendationRequest(new RecommendationEngine)
             .getRecommendations(userId)
         val mailer = new SmtpMailer
         val body = "Giusi's"

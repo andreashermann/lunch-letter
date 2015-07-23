@@ -1,16 +1,14 @@
-import io.prediction.EngineClient
-
 import scala.collection.mutable._
 import collection.JavaConversions._
 
-class RecommendationRequest(engineClient: EngineClient) {
+class RecommendationRequest(engineClient: RecommendationEngine) {
 
   def getRecommendations(userId: String) : List[String] = {
-    val arguments : java.util.Map[String,AnyRef] = HashMap("userEntityId" -> userId.asInstanceOf[AnyRef], "number" -> 3.asInstanceOf[AnyRef])
+    val arguments = Map("userEntityId" -> userId.asInstanceOf[AnyRef], "number" -> 3.asInstanceOf[AnyRef])
     val response = engineClient.sendQuery(arguments)
 
     response.getAsJsonArray("itemScores")
-      .map(_.getAsJsonObject().get("itemEntityId").getAsString)
+      .map(_.getAsJsonObject().get("item").getAsString)
       .toList
   }
 }
