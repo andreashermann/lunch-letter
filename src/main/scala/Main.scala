@@ -8,6 +8,8 @@ object Main {
     }
 
     def processUser(user : String) = {
+        val userId = "u1"
+        val response = new RecommendationRequest().getRecommendations(userId)
         val mailer = new SmtpMailer
         val body = "Giusi's"
         mailer.send(user, "LunchLetter Recommendations Do 23.7.", body)
