@@ -1,8 +1,11 @@
 import com.google.gson.JsonElement
+import java.time.LocalDate
+
 import main.scala.SmtpMailer
 import scala.collection.mutable.Map
 
 object Main {
+
   def main(args: Array[String]) = {
     val recommendationRequest = new RecommendationRequest(new RecommendationEngine)
     val restaurantsById = recommendationRequest.getRestaurantsById();
@@ -14,11 +17,12 @@ object Main {
   def processUser(emailAddress: String, restaurantsById: Map[String, Map[String, JsonElement]],
                   recommendationRequest: RecommendationRequest, mailer: SmtpMailer) = {
     val recommendationIds = recommendationRequest.getRecommendationIds(emailAddress)
-    val restraurants = recommendationIds.map(id => restaurantsById.get(id))
+    val restaurants = recommendationIds.map(id => restaurantsById.get(id))
 
-    val body = "Giusi's"
-    mailer.send(emailAddress, "LunchLetter Recommendations Do 23.7.", body)
-    //sendMail(user, "Giusi's")
+    val date = LocalDate.now().toString
+    val body = new TemplateRenderer().render(restaurants)
+    //val body = "Guisis"
+    mailer.send(emailAddress, "LunchLetter Recommendations " + date, body)
   }
 
   def sendMail(user: String, recommendation: String) = {

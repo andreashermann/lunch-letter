@@ -6,8 +6,8 @@ class TemplateRendererSpec extends FlatSpec with MockFactory with Matchers {
 
   it should "render the template" in {
 
-    val recommendations = Map("restaurants" -> List(Map("name" -> "Giusis"), Map("name" -> "Nooba")) )
-    val output = new TemplateRenderer().render(recommendations)
+    val restaurants = List(Map("name" -> "Giusis"), Map("name" -> "Nooba"))
+    val output = new TemplateRenderer().render(restaurants)
 
     output should be ("<ol><li>Giusis</li> <li>Nooba</li> </ol>")
   }
