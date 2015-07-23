@@ -3,7 +3,7 @@ import collection.JavaConversions._
 
 class RecommendationRequest(engineClient: RecommendationEngine) {
 
-  def getRecommendations(userId: String) : List[String] = {
+  def getRecommendations(userId: String): List[String] = {
     val arguments = Map("userEntityId" -> userId.asInstanceOf[AnyRef], "number" -> 3.asInstanceOf[AnyRef])
     val response = engineClient.sendQuery(arguments)
 
