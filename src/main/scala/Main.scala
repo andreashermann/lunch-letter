@@ -3,16 +3,14 @@ import scala.collection.JavaConversions._
 
 object Main {
   def main(args: Array[String]) = {
-    val recommendationEngine = new RecommendationEngine
-    val users = recommendationEngine.getUsers()
-
-    users.foreach(x => processUser(x.getAsJsonObject().get("entityId").getAsString))
+    val recommendationRequest = new RecommendationRequest(new RecommendationEngine)
+    val users = recommendationRequest.getUserIds()
+    val mailer = new SmtpMailer
+    users.foreach(x => processUser(x, recommendationRequest, mailer))
   }
 
-  def processUser(emailAddress: String) = {
-    val recommendationIds = new RecommendationRequest(new RecommendationEngine)
-      .getRecommendationIds(emailAddress)
-    val mailer = new SmtpMailer
+  def processUser(emailAddress: String, recommendationRequest : RecommendationRequest, mailer : SmtpMailer) = {
+    val recommendationIds = recommendationRequest.getRecommendationIds(emailAddress)
     val body = "Giusi's"
     mailer.send(emailAddress, "LunchLetter Recommendations Do 23.7.", body)
     //sendMail(user, "Giusi's")
