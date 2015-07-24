@@ -20,12 +20,12 @@ class RecommendationEngine {
   }
 
   def getUsers() : JsonArray = {
-    val url = "http://" + eventHost + "/events.json?event=add_user&accessKey=" + ENGINE_ACCESS_KEY
+    val url = "http://" + eventHost + "/events.json?event=add_user&limit=-1&accessKey=" + ENGINE_ACCESS_KEY
     new JsonParser().parse(Source.fromURL(url).mkString).asInstanceOf[JsonArray]
   }
 
   def getRestaurants() : JsonArray = {
-    val url = "http://" + eventHost + "/events.json?event=add_restaurant&accessKey=" + ENGINE_ACCESS_KEY
+    val url = "http://" + eventHost + "/events.json?event=add_restaurant&limit=-1&accessKey=" + ENGINE_ACCESS_KEY
     new JsonParser().parse(Source.fromURL(url).mkString).asInstanceOf[JsonArray]
   }
 }
