@@ -1,20 +1,56 @@
 [
-  {
-    "entityId":"a.v.hermann@gmail.com"
-  },
-  {
-    "entityId":"baestu.kohler@gmail.com"
-  },
-  {
-    "entityId":"roman.studer@ergon.ch"
-  },
-  {
-    "entityId":"matthias.leumann@ergon.ch"
-  },
-  {
-    "entityId":"leonardo.ravani@ergon.ch"
-  },
-  {
-    "entityId":"jan.wolf@ergon.ch"
-  }
+{
+"eventId": "GsEgifhN0ZivHRF-EfVSjwAAAU6-ua0roGSS7rgBKSg",
+"event": "add_user",
+"entityType": "user",
+"entityId": "matthias.leumann@ergon.ch",
+"properties": {},
+"eventTime": "2015-07-24T06:21:56.395Z",
+"creationTime": "2015-07-24T06:21:56.415Z"
+},
+{
+"eventId": "T6SVqo6UCHA998_9xC7HLQAAAU6-ua2QmLbhS4THwKI",
+"event": "add_user",
+"entityType": "user",
+"entityId": "leonardo.ravani@ergon.ch",
+"properties": {},
+"eventTime": "2015-07-24T06:21:56.496Z",
+"creationTime": "2015-07-24T06:21:56.513Z"
+},
+{
+"eventId": "Y0wb_uy0l0YNvo8YI7a0dgAAAU6-ua2vldwShfceZyQ",
+"event": "add_user",
+"entityType": "user",
+"entityId": "jan.wolf@ergon.ch",
+"properties": {},
+"eventTime": "2015-07-24T06:21:56.527Z",
+"creationTime": "2015-07-24T06:21:56.545Z"
+},
+{
+"eventId": "dzqujfTAY_d4WWOS16_2yAAAAU6-ualSlqPlR17qx7g",
+"event": "add_user",
+"entityType": "user",
+"entityId": "roman.studer@ergon.ch",
+"properties": {},
+"eventTime": "2015-07-24T06:21:55.410Z",
+"creationTime": "2015-07-24T06:21:55.995Z"
+},
+{
+"eventId": "f4_M5QnTAeMgFajsOMw7LQAAAU6-ua1xi9MzBeogigs",
+"event": "add_user",
+"entityType": "user",
+"entityId": "andreas.hermann@ergon.ch",
+"properties": {},
+"eventTime": "2015-07-24T06:21:56.465Z",
+"creationTime": "2015-07-24T06:21:56.482Z"
+},
+{
+"eventId": "g_V0NS5tkRmD7_koCKZDFAAAAU6-ua1PoX3k_PT7Gfk",
+"event": "add_user",
+"entityType": "user",
+"entityId": "sebastian.kohler@ergon.ch",
+"properties": {},
+"eventTime": "2015-07-24T06:21:56.431Z",
+"creationTime": "2015-07-24T06:21:56.449Z"
+}
 ]
