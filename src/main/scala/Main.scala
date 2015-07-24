@@ -6,7 +6,7 @@ import scala.collection.immutable.Map
 
 object Main {
 
-  val engine = new RecommendationEngineStub() // new RecommendationEngine
+  val engine = new RecommendationEngine() // new RecommendationEngine
   val mailer = new SmtpMailer // new SmtpMailer
 
   def main(args: Array[String]) = {
