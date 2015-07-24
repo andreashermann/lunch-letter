@@ -11,7 +11,6 @@ class RecommendationEngine {
   val ENGINE_ACCESS_KEY = System.getenv("ENGINE_ACCESS_KEY")
 
   def getRecommendations(arguments: Map[String, AnyRef]): JsonObject = {
-    print(arguments)
     val engine = new EngineClient("http://" + queryHost)
 
     val javaMap = new java.util.HashMap[String, AnyRef]()
