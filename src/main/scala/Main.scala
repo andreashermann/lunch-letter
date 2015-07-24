@@ -7,7 +7,7 @@ import scala.collection.mutable.Map
 object Main {
 
   val engine = new RecommendationEngineStub() // new RecommendationEngine
-  val mailer = new StubMailer // new SmtpMailer
+  val mailer = new SmtpMailer // new SmtpMailer
 
   def main(args: Array[String]) = {
     val recommendationRequest = new RecommendationRequest(engine)

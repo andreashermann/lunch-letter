@@ -11,7 +11,7 @@ class SmtpMailer {
   val password = System.getenv("MAIL_SMTP_PASSWORD")
 
   val properties: Properties = new Properties()
-  properties.put("mail.smtp.host", "smtp.gmail.com")
+  properties.put("mail.smtp.host", "smtp.mandrillapp.com")
   properties.put("mail.smtp.port", "587");
   properties.put("mail.smtp.auth", "true")
   properties.put("mail.smtp.starttls.enable", "true")
@@ -30,7 +30,7 @@ class SmtpMailer {
     session.setDebug(true)
 
     val message = new MimeMessage(session)
-    message.setFrom("a.v.hermann@gmail.com")
+    message.setFrom("recommendations@lunchletter.ch")
     message.setRecipients(RecipientType.TO, recipient)
     message.setSubject(subject)
 
