@@ -1,8 +1,8 @@
-import com.google.gson.JsonElement
 import java.time.LocalDate
 
 import main.scala.SmtpMailer
-import scala.collection.mutable.Map
+
+import scala.collection.immutable.Map
 
 object Main {
 
@@ -19,7 +19,7 @@ object Main {
   def processUser(emailAddress: String, restaurantsById: Map[String, Map[String, String]],
                   recommendationRequest: RecommendationRequest, mailer: SmtpMailer) = {
     val recommendationIds = recommendationRequest.getRecommendationIds(emailAddress)
-    val restaurants : List[Map[String,String]] = recommendationIds.map(id => restaurantsById.get(id)).flatten
+    val restaurants: List[Map[String, String]] = recommendationIds.map(id => restaurantsById.get(id)).flatten
     //print(restaurants)
 
     val date = LocalDate.now().toString
