@@ -30,6 +30,7 @@ class RecommendationRequest(engineClient: RecommendationEngine) {
       for(entry <- restaurant.get("properties").getAsJsonObject().entrySet()) {
         properties.put(entry.getKey, entry.getValue().getAsString)
       }
+      properties.put("entityId", restaurant.get("entityId").getAsString)
       restaurantsById.put(restaurant.get("entityId").getAsString, properties)
     }
     restaurantsById

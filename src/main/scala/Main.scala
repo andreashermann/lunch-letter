@@ -23,7 +23,7 @@ object Main {
     //print(restaurants)
 
     val date = LocalDate.now().toString
-    val body = new TemplateRenderer().render(restaurants)
+    val body = new TemplateRenderer().render(emailAddress, restaurants)
     mailer.send(emailAddress, "LunchLetter Recommendations " + date, body)
   }
 }

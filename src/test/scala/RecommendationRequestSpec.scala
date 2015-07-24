@@ -36,5 +36,6 @@ class RecommendationRequestSpec extends FlatSpec with MockFactory with Matchers 
 
     restaurants should contain key "1656"
     restaurants.get("1656").get("name") should be ("The restaurant")
+    restaurants.get("1656").get("entityId") should be ("1656")
   }
 }
