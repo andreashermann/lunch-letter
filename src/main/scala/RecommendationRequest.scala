@@ -8,7 +8,7 @@ import scala.util.Random
 class RecommendationRequest(engineClient: RecommendationEngine) {
 
   def getRecommendationIds(userId: String): List[String] = {
-    val arguments = Map("userEntityId" -> userId.asInstanceOf[AnyRef], "number" -> 3.asInstanceOf[AnyRef])
+    val arguments = Map("user" -> userId.asInstanceOf[AnyRef], "num" -> 3.asInstanceOf[AnyRef])
     val response = engineClient.getRecommendations(arguments)
 
     response.getAsJsonArray("itemScores")
