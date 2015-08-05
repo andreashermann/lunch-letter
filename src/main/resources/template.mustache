@@ -164,13 +164,19 @@ img {
               </table>
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td class="subtitle" style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:22px;font-weight:600;color:#2469A0;padding-bottom:6px"><a href="http://www.google.com/search?q={{name}}+zurich&btnI">{{name}}</a></td>
+                  <td class="subtitle" style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:22px;font-weight:600;color:#2469A0;padding-bottom:6px">
+                  	<a href="https://api.keen.io/3.0/projects/{{projectId}}/events/clickRestaurant?api_key={{writeKey}}&data={{eventData}}&redirect=www.google.com%2Fsearch%3Fq%3D{{_name_}}%2Bzurich%26btnI">{{name}}</a>
+                  </td>
                 </tr>
               </table>
               <div class="col-copy" style="font-family:Helvetica, Arial, sans-serif;font-size:13px;line-height:20px;text-align:left;color:#333333">
-               <a href="https://www.google.ch/maps/dir/Merkurstrasse+30,+8032+Z%C3%BCrich/{{name}},+{{address1}},+{{address2}}">{{address1}}, {{address2}}</a>
+               <a href="https://api.keen.io/3.0/projects/{{projectId}}/events/clickDirections?api_key={{writeKey}}&data={{eventData}}&redirect=www.google.ch%2Fmaps%2Fdir%2FMerkurstrasse+30,+8032+Zurichr%2F{{_name_}},+{{_address1_}},+{{_address2_}}">{{address1}}, {{address2}}</a>
                <br/> Rate it!
-                   <a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=1">&#x2605;</a><a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=2">&#x2605;</a><a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=3">&#x2605;</a><a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=4">&#x2605;</a><a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=5">&#x2605;</a>
+                   <a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=1">&#x2605;</a>
+                   <a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=2">&#x2605;</a>
+                   <a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=3">&#x2605;</a>
+                   <a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=4">&#x2605;</a>
+                   <a href="http://www.lunchletter.ch/feedback?userId={{userId}}&restaurantId={{entityId}}&rating=5">&#x2605;</a>
                  </div>
               <br>
             </td>
@@ -194,11 +200,12 @@ img {
           <td class="container-padding footer-text" align="left" style="font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:16px;color:#aaaaaa;padding-left:24px;padding-right:24px">
             <br><br>
 
-            <strong>Lunchletter.ch</strong><br>
+            <strong>LunchLetter<br>
             <span class="ios-footer">
               Hackathon 2015<br>
             </span>
-            <a href="http://lunchletter.ch" style="color:#aaaaaa">lunchletter.ch</a><br>
+            
+            <a href="https://api.keen.io/3.0/projects/{{projectId}}/events/clickLink?api_key={{writeKey}}&data={{eventData}}&redirect=www.lunchletter.ch" style="color:#aaaaaa">www.lunchletter.ch</a><br>
 
             <br><br>
 

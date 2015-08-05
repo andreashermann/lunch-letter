@@ -1,4 +1,5 @@
 import com.google.gson.JsonObject
+import java.net.URLEncoder
 
 import scala.collection.JavaConversions._
 import scala.collection.immutable
@@ -40,9 +41,15 @@ class RecommendationRequest(engineClient: RecommendationEngine) {
         val properties = restaurant.get("properties").getAsJsonObject();
         properties.addProperty("entityId", restaurant.get("entityId").getAsString)
         properties.addProperty("imageLink", imageLink);
-        restaurant.get("properties").getAsJsonObject().entrySet()
+        val result = restaurant.get("properties").getAsJsonObject().entrySet()
           .map(entry => entry.getKey -> entry.getValue().getAsString)
           .toMap
+        
+        // URLencode some properties here since the templating engine is not capable of this
+        result + ("_name_" -> URLEncoder.encode(result.get("name") getOrElse "","US-ASCII"), 
+        	"_address1_" -> URLEncoder.encode(result.get("address1") getOrElse "","US-ASCII"), 
+        	"_address2_" -> URLEncoder.encode(result.get("address2") getOrElse "","US-ASCII")
+        )
         }
       })
       .toMap

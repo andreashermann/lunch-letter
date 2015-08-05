@@ -7,7 +7,7 @@ import scala.collection.immutable.Map
 object Main {
 
   val engine = new RecommendationEngine() // new RecommendationEngine
-  val mailer = new StubMailer // new SmtpMailer
+  val mailer = new SmtpMailer // new SmtpMailer
 
   def main(args: Array[String]) : Unit = {
     val recommendationRequest = new RecommendationRequest(engine)
@@ -21,8 +21,7 @@ object Main {
                   recommendationRequest: RecommendationRequest, mailer: SmtpMailer) = {
     val recommendationIds = recommendationRequest.getRecommendationIds(emailAddress)
     val restaurants: List[Map[String, String]] = recommendationIds.map(id => restaurantsById.get(id)).flatten
-    //print(restaurants)
-
+    
     val date = LocalDate.now().toString
     val body = new TemplateRenderer().render(emailAddress, restaurants)
     mailer.send(emailAddress, "LunchLetter Recommendations " + date, body)
